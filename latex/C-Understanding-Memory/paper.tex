@@ -1,10 +1,29 @@
-\documentclass[a4paper]{article}
+\documentclass[letterpaper]{article}
 \usepackage[margin=1in]{geometry}
 \usepackage{setspace}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{caption}
+
+\lstset{
+    showspaces=false,
+    showstringspaces=false,
+    language=C,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!50!black},
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny,
+    frame=single,
+    breaklines=true,
+}
 
 \begin{document}
 \input{00-title.tex}
 \newpage
 \input{01-preface.tex}
+\newpage
+\input{02-memory.tex}
 
 \end{document}
