@@ -18,4 +18,5 @@
 <br />
 
 | Title | Status |
+| ----- | ------ |
 | [Understanding Memory in C](./latex/C-Understanding-Memory/paper.pdf) | `On-going` |
