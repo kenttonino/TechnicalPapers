@@ -15,6 +15,19 @@ From your program's perspective, memory is just a very long sequence of bytes, e
 
 Think of memory as a very long street of numbered houses. Each house holds exactly one byte. The house number is the address. When your program stores a value, it's putting data into one or more of those houses. When it reads a value, it's looking up a house by number and reading what's inside.
 
+\vspace{0.2cm}
+
+\begin{lstlisting}
+int x = 42;
+// prints 42
+printf("value: %d\n", x);
+// prints something like 0x7ffd3a2c1b4c
+printf("address: %p\n", (void*)&x);
+\end{lstlisting}
+
+\vspace{0.2cm}
+
+The \texttt{\&} operator gives you the address (house number) of a variable. On most systems, an \texttt{int} occupies 4 consecutive bytes, so \texttt{x} occupies 4 houses starting at that address.
 
 \end{minipage}
 \end{onehalfspace}
