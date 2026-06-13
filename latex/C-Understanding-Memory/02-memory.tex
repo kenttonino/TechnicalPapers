@@ -1,62 +1,51 @@
 % ------ %
 % Memory %
 % ------ %
-\noindent\textbf{\LARGE{01. Memory}}
+\noindent\textbf{\LARGE{1 Memory}}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 \begin{onehalfspace}
-\noindent\large\begin{minipage}{\textwidth}
+\noindent
+\begin{minipage}{\textwidth}
+\fontsize{12pt}{15pt}
 
-  Before anything else, let's establish what memory actually is.
-
-  \vspace{0.2cm}
-
-  From your program's perspective, memory is just a very long sequence of bytes, each with a unique number called \textbf{address}. On a 64-bit system, addresses are 64-bit numbers, giving a a theoretical address space of $2^{64}$ bytes. On a 32-bit system, addresses are 32-bit numbers.
+  Before anything else, let's establish what memory actually is. From your program's perspective, memory is just a very long sequence of bytes, each with a unique number called address. On a 64-bit system, addresses are 64-bit numbers, giving a a theoretical address space of $2^{64}$ bytes. On a 32-bit system, addresses are 32-bit numbers.
 
   \vspace{0.2cm}
 
   Think of memory as a very long street of numbered houses. Each house holds exactly one byte. The house number is the address. When your program stores a value, it's putting data into one or more of those houses. When it reads a value, it's looking up a house by number and reading what's inside.
 
+  \vspace{0.3cm}
+
   \captionsetup[lstlisting]{labelformat=empty}
-  \begin{lstlisting}[caption={Example \#1}, captionpos=t]
+  \begin{lstlisting}
   int x = 42;
+  // prints 42
   printf("value: %d\n", x);
+  // prints like 0x7ffd3a2c1b4c
   printf("address: %p\n", (void*)&x);
   \end{lstlisting}
 
   \vspace{0.1cm}
 
-  The \texttt{\&} operator gives you the address (house number) of a variable. On most systems, an \texttt{int} occupies 4 consecutive bytes, so \texttt{x} occupies 4 houses starting at that address.
+  The \texttt{\&} operator gives you the address (house number) of a variable. On most systems, an int occupies 4 consecutive bytes, so x occupies 4 houses starting at that address.
 
-\end{minipage}
-\end{onehalfspace}
+  \vspace{0.3cm}
 
+  \noindent\textbf{\large{1.1. Virtual Memory}}
 
+  \vspace{0.3cm}
 
-
-% -------------- %
-% Virtual Memory %
-% -------------- %
-\vspace{0.5cm}
-
-\noindent\textbf{\large{\textit{\underline{Virtual Memory}}}}
-
-\vspace{0.5cm}
-
-\begin{onehalfspace}
-\noindent\large\begin{minipage}{\textwidth}
-
-  The address your program sees are not physical RAM addresses. The operating system gives every process its own private \textbf{virtual address space}, which is a complete isolated view of memory from address 0 to the maximum.
+    The address your program sees are not physical RAM addresses. The operating system gives every process its own private virtual address space, which is a complete isolated view of memory from address 0 to the maximum.
 
   \vspace{0.2cm}
 
-  The \textbf{Memory Management Unit} (MMU) is a hardware that translates virtual addresses to physical addresses. Your address \textbf{0x7ffd3a2c1b4c} and another program at the same address are accessing completely different physical memory, they just happen to use the same virtual address.
+  The Memory Management Unit (MMU) is a hardware that translates virtual addresses to physical addresses. Your address 0x7ffd3a2c1b4c and another program at the same address are accessing completely different physical memory, they just happen to use the same virtual address.
 
   \vspace{0.2cm}
 
   This is why processes can't accidentally read each other's memory, and why pointer from one process is meaningless in another.
-
 
 \end{minipage}
 \end{onehalfspace}
